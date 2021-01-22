@@ -18,7 +18,7 @@ import kotlin.Suppress
     "RemoveExplicitTypeArguments", "NestedLambdaShadowedImplicitParameter", "PropertyName",
     "RemoveRedundantQualifierName")
 object DroidDetails1Impl_ResponseAdapter : ResponseAdapter<DroidDetails1Impl.Data> {
-  private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+  val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
           ResponseField.Kind.OTHER)),
@@ -26,6 +26,7 @@ object DroidDetails1Impl_ResponseAdapter : ResponseAdapter<DroidDetails1Impl.Dat
       fieldName = "__typename",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = emptyArray(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -34,6 +35,7 @@ object DroidDetails1Impl_ResponseAdapter : ResponseAdapter<DroidDetails1Impl.Dat
       fieldName = "name",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = emptyArray(),
     )
   )
 

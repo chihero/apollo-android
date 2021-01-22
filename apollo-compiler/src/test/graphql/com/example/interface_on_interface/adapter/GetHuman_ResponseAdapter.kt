@@ -19,7 +19,7 @@ import kotlin.Suppress
     "RemoveExplicitTypeArguments", "NestedLambdaShadowedImplicitParameter", "PropertyName",
     "RemoveRedundantQualifierName")
 object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
-  private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+  val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("Human",
           ResponseField.Kind.OBJECT)),
@@ -27,6 +27,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
       fieldName = "human",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = Human.RESPONSE_FIELDS,
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("Node",
@@ -35,6 +36,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
       fieldName = "node",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = Node.RESPONSE_FIELDS,
     )
   )
 
@@ -70,7 +72,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
   }
 
   object Human : ResponseAdapter<GetHuman.Data.Human> {
-    private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
             ResponseField.Kind.OTHER)),
@@ -78,6 +80,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
         fieldName = "id",
         arguments = emptyMap(),
         conditions = emptyList(),
+        fields = emptyArray(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -86,6 +89,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
+        fields = emptyArray(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("Float",
@@ -94,6 +98,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
         fieldName = "height",
         arguments = emptyMap(),
         conditions = emptyList(),
+        fields = emptyArray(),
       )
     )
 
@@ -126,7 +131,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
   }
 
   object Node : ResponseAdapter<GetHuman.Data.Node> {
-    private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
             ResponseField.Kind.OTHER)),
@@ -134,6 +139,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
         fieldName = "__typename",
         arguments = emptyMap(),
         conditions = emptyList(),
+        fields = emptyArray(),
       )
     )
 
@@ -153,7 +159,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
     }
 
     object HumanNode : ResponseAdapter<GetHuman.Data.Node.HumanNode> {
-      private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+      val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
         ResponseField(
           type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
               ResponseField.Kind.OTHER)),
@@ -161,6 +167,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
+          fields = emptyArray(),
         ),
         ResponseField(
           type = ResponseField.Type.NotNull(ResponseField.Type.Named("Float",
@@ -169,6 +176,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
           fieldName = "height",
           arguments = emptyMap(),
           conditions = emptyList(),
+          fields = emptyArray(),
         )
       )
 
@@ -198,7 +206,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
     }
 
     object OtherNode : ResponseAdapter<GetHuman.Data.Node.OtherNode> {
-      private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+      val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
         ResponseField(
           type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
               ResponseField.Kind.OTHER)),
@@ -206,6 +214,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
+          fields = emptyArray(),
         )
       )
 

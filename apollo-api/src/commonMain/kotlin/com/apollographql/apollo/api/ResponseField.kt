@@ -17,7 +17,8 @@ class ResponseField(
     val responseName: String,
     val fieldName: String,
     val arguments: Map<String, Any?>,
-    val conditions: List<Condition>
+    val conditions: List<Condition>,
+    val fields: Array<ResponseField>,
 ) {
 
   /**
@@ -51,8 +52,8 @@ class ResponseField(
     /**
      * a Named GraphQL type
      *
-     * @param kind: whether this is an object or not. This is currently required by the CacheKeyResolver API
-     * In a typical server scenario, the resolvers would have access to the schema and would look up the complete typ
+     * @param kind: whether this is an object or not. This is currently required by the CacheKeyResolver API.
+     * In a typical server scenario, the resolvers would have access to the schema and would look up the complete type
      * but we want to stay lightweight so for now we add this information
      */
     class Named(val name: String, val kind: Kind): Type()

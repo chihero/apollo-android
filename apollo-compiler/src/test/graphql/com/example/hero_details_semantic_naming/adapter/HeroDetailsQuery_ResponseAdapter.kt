@@ -20,13 +20,14 @@ import kotlin.collections.List
     "RemoveExplicitTypeArguments", "NestedLambdaShadowedImplicitParameter", "PropertyName",
     "RemoveRedundantQualifierName")
 object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data> {
-  private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+  val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
     ResponseField(
       type = ResponseField.Type.Named("Character", ResponseField.Kind.OBJECT),
       responseName = "hero",
       fieldName = "hero",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = Hero.RESPONSE_FIELDS,
     )
   )
 
@@ -58,7 +59,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
   }
 
   object Hero : ResponseAdapter<HeroDetailsQuery.Data.Hero> {
-    private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
             ResponseField.Kind.OTHER)),
@@ -66,6 +67,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
+        fields = emptyArray(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("FriendsConnection",
@@ -74,6 +76,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
         fieldName = "friendsConnection",
         arguments = emptyMap(),
         conditions = emptyList(),
+        fields = FriendsConnection.RESPONSE_FIELDS,
       )
     )
 
@@ -106,13 +109,14 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
     }
 
     object FriendsConnection : ResponseAdapter<HeroDetailsQuery.Data.Hero.FriendsConnection> {
-      private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+      val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
         ResponseField(
           type = ResponseField.Type.Named("Int", ResponseField.Kind.OTHER),
           responseName = "totalCount",
           fieldName = "totalCount",
           arguments = emptyMap(),
           conditions = emptyList(),
+          fields = emptyArray(),
         ),
         ResponseField(
           type = ResponseField.Type.List(ResponseField.Type.Named("FriendsEdge",
@@ -121,6 +125,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
           fieldName = "edges",
           arguments = emptyMap(),
           conditions = emptyList(),
+          fields = Edge.RESPONSE_FIELDS,
         )
       )
 
@@ -158,13 +163,14 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
       }
 
       object Edge : ResponseAdapter<HeroDetailsQuery.Data.Hero.FriendsConnection.Edge> {
-        private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+        val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
           ResponseField(
             type = ResponseField.Type.Named("Character", ResponseField.Kind.OBJECT),
             responseName = "node",
             fieldName = "node",
             arguments = emptyMap(),
             conditions = emptyList(),
+            fields = Node.RESPONSE_FIELDS,
           )
         )
 
@@ -198,7 +204,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
         }
 
         object Node : ResponseAdapter<HeroDetailsQuery.Data.Hero.FriendsConnection.Edge.Node> {
-          private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+          val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
             ResponseField(
               type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
                   ResponseField.Kind.OTHER)),
@@ -206,6 +212,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
               fieldName = "name",
               arguments = emptyMap(),
               conditions = emptyList(),
+              fields = emptyArray(),
             )
           )
 

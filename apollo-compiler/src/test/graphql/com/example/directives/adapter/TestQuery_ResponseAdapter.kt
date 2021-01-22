@@ -19,13 +19,14 @@ import kotlin.Suppress
     "RemoveExplicitTypeArguments", "NestedLambdaShadowedImplicitParameter", "PropertyName",
     "RemoveRedundantQualifierName")
 object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
-  private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+  val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
     ResponseField(
       type = ResponseField.Type.Named("Character", ResponseField.Kind.OBJECT),
       responseName = "hero",
       fieldName = "hero",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = Hero.RESPONSE_FIELDS,
     )
   )
 
@@ -57,7 +58,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
   }
 
   object Hero : ResponseAdapter<TestQuery.Data.Hero> {
-    private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
       ResponseField(
         type = ResponseField.Type.Named("String", ResponseField.Kind.OTHER),
         responseName = "name",
@@ -66,6 +67,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         conditions = listOf(
           ResponseField.Condition.booleanCondition("includeName", false)
         ),
+        fields = emptyArray(),
       ),
       ResponseField(
         type = ResponseField.Type.Named("FriendsConnection", ResponseField.Kind.OBJECT),
@@ -75,6 +77,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         conditions = listOf(
           ResponseField.Condition.booleanCondition("skipFriends", true)
         ),
+        fields = FriendsConnection.RESPONSE_FIELDS,
       )
     )
 
@@ -110,13 +113,14 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
     }
 
     object FriendsConnection : ResponseAdapter<TestQuery.Data.Hero.FriendsConnection> {
-      private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+      val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
         ResponseField(
           type = ResponseField.Type.Named("Int", ResponseField.Kind.OTHER),
           responseName = "totalCount",
           fieldName = "totalCount",
           arguments = emptyMap(),
           conditions = emptyList(),
+          fields = emptyArray(),
         )
       )
 

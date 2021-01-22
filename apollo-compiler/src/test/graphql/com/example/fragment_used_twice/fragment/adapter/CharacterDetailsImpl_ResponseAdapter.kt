@@ -19,7 +19,7 @@ import kotlin.Suppress
     "RemoveExplicitTypeArguments", "NestedLambdaShadowedImplicitParameter", "PropertyName",
     "RemoveRedundantQualifierName")
 object CharacterDetailsImpl_ResponseAdapter : ResponseAdapter<CharacterDetailsImpl.Data> {
-  private val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
+  val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
           ResponseField.Kind.OTHER)),
@@ -27,6 +27,7 @@ object CharacterDetailsImpl_ResponseAdapter : ResponseAdapter<CharacterDetailsIm
       fieldName = "__typename",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = emptyArray(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -35,6 +36,7 @@ object CharacterDetailsImpl_ResponseAdapter : ResponseAdapter<CharacterDetailsIm
       fieldName = "name",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = emptyArray(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("Date", ResponseField.Kind.OTHER)),
@@ -42,6 +44,7 @@ object CharacterDetailsImpl_ResponseAdapter : ResponseAdapter<CharacterDetailsIm
       fieldName = "birthDate",
       arguments = emptyMap(),
       conditions = emptyList(),
+      fields = emptyArray(),
     )
   )
 
