@@ -152,6 +152,7 @@ object StarshipFragmentImpl_ResponseAdapter : ResponseAdapter<StarshipFragmentIm
           conditions = emptyList(),
           possibleFieldSets = mapOf(
             "Person" to Node.PersonNode.RESPONSE_FIELDS,
+            "" to Node.OtherNode.RESPONSE_FIELDS,
           ),
         )
       )
@@ -231,6 +232,7 @@ object StarshipFragmentImpl_ResponseAdapter : ResponseAdapter<StarshipFragmentIm
               conditions = emptyList(),
               possibleFieldSets = mapOf(
                 "Planet" to Homeworld.PlanetHomeworld.RESPONSE_FIELDS,
+                "" to Homeworld.OtherHomeworld.RESPONSE_FIELDS,
               ),
             )
           )

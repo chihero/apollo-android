@@ -53,6 +53,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         possibleFieldSets = mapOf(
           "Droid" to Hero.CharacterHero.RESPONSE_FIELDS,
           "Human" to Hero.CharacterHero.RESPONSE_FIELDS,
+          "" to Hero.OtherHero.RESPONSE_FIELDS,
         ),
       ),
       ResponseField(
@@ -64,6 +65,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         conditions = emptyList(),
         possibleFieldSets = mapOf(
           "Droid" to Droid.DroidDroid.RESPONSE_FIELDS,
+          "" to Droid.OtherDroid.RESPONSE_FIELDS,
         ),
       ),
       ResponseField(
@@ -75,6 +77,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         conditions = emptyList(),
         possibleFieldSets = mapOf(
           "Human" to Human.HumanHuman.RESPONSE_FIELDS,
+          "" to Human.OtherHuman.RESPONSE_FIELDS,
         ),
       )
     )

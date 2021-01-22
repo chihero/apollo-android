@@ -30,6 +30,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
       conditions = emptyList(),
       possibleFieldSets = mapOf(
         "Starship" to Search.StarshipSearch.RESPONSE_FIELDS,
+        "" to Search.OtherSearch.RESPONSE_FIELDS,
       ),
     )
   )

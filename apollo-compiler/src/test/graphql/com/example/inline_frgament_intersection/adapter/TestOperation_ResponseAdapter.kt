@@ -33,6 +33,7 @@ object TestOperation_ResponseAdapter : ResponseAdapter<TestOperation.Data> {
       possibleFieldSets = mapOf(
         "Human" to Random.BeingHumanRandom.RESPONSE_FIELDS,
         "Wookie" to Random.BeingWookieRandom.RESPONSE_FIELDS,
+        "" to Random.OtherRandom.RESPONSE_FIELDS,
       ),
     )
   )
@@ -109,6 +110,7 @@ object TestOperation_ResponseAdapter : ResponseAdapter<TestOperation.Data> {
           conditions = emptyList(),
           possibleFieldSets = mapOf(
             "Wookie" to Friend.WookieFriend.RESPONSE_FIELDS,
+            "" to Friend.OtherFriend.RESPONSE_FIELDS,
           ),
         ),
         ResponseField(
@@ -359,6 +361,7 @@ object TestOperation_ResponseAdapter : ResponseAdapter<TestOperation.Data> {
           conditions = emptyList(),
           possibleFieldSets = mapOf(
             "Wookie" to Friend.WookieFriend.RESPONSE_FIELDS,
+            "" to Friend.OtherFriend.RESPONSE_FIELDS,
           ),
         ),
         ResponseField(

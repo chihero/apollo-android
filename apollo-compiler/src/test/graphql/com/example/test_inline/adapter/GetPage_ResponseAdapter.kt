@@ -29,6 +29,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
       conditions = emptyList(),
       possibleFieldSets = mapOf(
         "ParticularCollection" to Collection.ParticularCollectionCollection.RESPONSE_FIELDS,
+        "" to Collection.OtherCollection.RESPONSE_FIELDS,
       ),
     )
   )
@@ -95,6 +96,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
           conditions = emptyList(),
           possibleFieldSets = mapOf(
             "ParticularItem" to Item.ParticularItemItem.RESPONSE_FIELDS,
+            "" to Item.OtherItem.RESPONSE_FIELDS,
           ),
         )
       )

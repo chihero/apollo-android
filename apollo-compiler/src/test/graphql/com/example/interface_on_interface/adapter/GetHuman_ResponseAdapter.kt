@@ -40,6 +40,7 @@ object GetHuman_ResponseAdapter : ResponseAdapter<GetHuman.Data> {
       conditions = emptyList(),
       possibleFieldSets = mapOf(
         "Human" to Node.HumanNode.RESPONSE_FIELDS,
+        "" to Node.OtherNode.RESPONSE_FIELDS,
       ),
     )
   )
