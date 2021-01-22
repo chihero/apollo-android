@@ -26,7 +26,7 @@ object HeroFragmentImpl_ResponseAdapter : ResponseAdapter<HeroFragmentImpl.Data>
       fieldName = "__typename",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -35,7 +35,7 @@ object HeroFragmentImpl_ResponseAdapter : ResponseAdapter<HeroFragmentImpl.Data>
       fieldName = "name",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     )
   )
 

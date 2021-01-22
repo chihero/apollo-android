@@ -26,7 +26,9 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
       fieldName = "tree",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = Tree.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "" to Tree.RESPONSE_FIELDS
+      ),
     )
   )
 
@@ -66,7 +68,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type =
@@ -76,7 +78,9 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "children",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = Child.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to Child.RESPONSE_FIELDS
+        ),
       ),
       ResponseField(
         type = ResponseField.Type.Named("Tree", ResponseField.Kind.OBJECT),
@@ -84,7 +88,9 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "parent",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = Parent.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to Parent.RESPONSE_FIELDS
+        ),
       )
     )
 
@@ -140,7 +146,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
           fieldName = "name",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 
@@ -174,7 +180,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
           fieldName = "name",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 

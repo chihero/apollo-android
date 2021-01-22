@@ -26,7 +26,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
       fieldName = "__typename",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.Named("Character", ResponseField.Kind.OBJECT),
@@ -34,7 +34,10 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
       fieldName = "hero",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = Hero.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "Droid" to Hero.CharacterHero.RESPONSE_FIELDS,
+        "Human" to Hero.CharacterHero.RESPONSE_FIELDS,
+      ),
     ),
     ResponseField(
       type = ResponseField.Type.Named("Droid", ResponseField.Kind.OBJECT),
@@ -43,7 +46,9 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
       arguments = mapOf<String, Any?>(
         "id" to 1),
       conditions = emptyList(),
-      fields = Droid.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "Droid" to Droid.DroidDroid.RESPONSE_FIELDS,
+      ),
     ),
     ResponseField(
       type = ResponseField.Type.Named("Human", ResponseField.Kind.OBJECT),
@@ -52,7 +57,9 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
       arguments = mapOf<String, Any?>(
         "id" to 1),
       conditions = emptyList(),
-      fields = Human.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "Human" to Human.HumanHuman.RESPONSE_FIELDS,
+      ),
     )
   )
 
@@ -112,21 +119,9 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
   }
 
   object Hero : ResponseAdapter<QueryFragmentImpl.Data.Hero> {
-    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-      ResponseField(
-        type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-            ResponseField.Kind.OTHER)),
-        responseName = "__typename",
-        fieldName = "__typename",
-        arguments = emptyMap(),
-        conditions = emptyList(),
-        fields = emptyArray(),
-      )
-    )
-
     override fun fromResponse(reader: ResponseReader, __typename: String?):
         QueryFragmentImpl.Data.Hero {
-      val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+      val typename = __typename ?: reader.readString(ResponseField.Typename)
       return when(typename) {
         "Droid" -> CharacterHero.fromResponse(reader, typename)
         "Human" -> CharacterHero.fromResponse(reader, typename)
@@ -150,7 +145,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -159,7 +154,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "name",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 
@@ -198,7 +193,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 
@@ -226,21 +221,9 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
   }
 
   object Droid : ResponseAdapter<QueryFragmentImpl.Data.Droid> {
-    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-      ResponseField(
-        type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-            ResponseField.Kind.OTHER)),
-        responseName = "__typename",
-        fieldName = "__typename",
-        arguments = emptyMap(),
-        conditions = emptyList(),
-        fields = emptyArray(),
-      )
-    )
-
     override fun fromResponse(reader: ResponseReader, __typename: String?):
         QueryFragmentImpl.Data.Droid {
-      val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+      val typename = __typename ?: reader.readString(ResponseField.Typename)
       return when(typename) {
         "Droid" -> DroidDroid.fromResponse(reader, typename)
         else -> OtherDroid.fromResponse(reader, typename)
@@ -263,7 +246,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -272,7 +255,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "name",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.Named("String", ResponseField.Kind.OTHER),
@@ -280,7 +263,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "primaryFunction",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 
@@ -323,7 +306,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 
@@ -351,21 +334,9 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
   }
 
   object Human : ResponseAdapter<QueryFragmentImpl.Data.Human> {
-    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-      ResponseField(
-        type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-            ResponseField.Kind.OTHER)),
-        responseName = "__typename",
-        fieldName = "__typename",
-        arguments = emptyMap(),
-        conditions = emptyList(),
-        fields = emptyArray(),
-      )
-    )
-
     override fun fromResponse(reader: ResponseReader, __typename: String?):
         QueryFragmentImpl.Data.Human {
-      val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+      val typename = __typename ?: reader.readString(ResponseField.Typename)
       return when(typename) {
         "Human" -> HumanHuman.fromResponse(reader, typename)
         else -> OtherHuman.fromResponse(reader, typename)
@@ -388,7 +359,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -397,7 +368,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "name",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.Named("String", ResponseField.Kind.OTHER),
@@ -405,7 +376,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "homePlanet",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 
@@ -448,7 +419,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 

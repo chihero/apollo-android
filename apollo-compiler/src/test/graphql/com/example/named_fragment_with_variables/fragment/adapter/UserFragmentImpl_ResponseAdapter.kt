@@ -26,7 +26,7 @@ object UserFragmentImpl_ResponseAdapter : ResponseAdapter<UserFragmentImpl.Data>
       fieldName = "__typename",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -35,7 +35,7 @@ object UserFragmentImpl_ResponseAdapter : ResponseAdapter<UserFragmentImpl.Data>
       fieldName = "firstName",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -44,7 +44,7 @@ object UserFragmentImpl_ResponseAdapter : ResponseAdapter<UserFragmentImpl.Data>
       fieldName = "lastName",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -56,7 +56,7 @@ object UserFragmentImpl_ResponseAdapter : ResponseAdapter<UserFragmentImpl.Data>
           "kind" to "Variable",
           "variableName" to "size")),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     )
   )
 

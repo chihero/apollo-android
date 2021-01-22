@@ -28,7 +28,7 @@ object HumanDetailsImpl_ResponseAdapter : ResponseAdapter<HumanDetailsImpl.Data>
       fieldName = "__typename",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -37,7 +37,7 @@ object HumanDetailsImpl_ResponseAdapter : ResponseAdapter<HumanDetailsImpl.Data>
       fieldName = "name",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("URL", ResponseField.Kind.OTHER)),
@@ -45,7 +45,7 @@ object HumanDetailsImpl_ResponseAdapter : ResponseAdapter<HumanDetailsImpl.Data>
       fieldName = "profileLink",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.NotNull(ResponseField.Type.Named("FriendsConnection",
@@ -54,7 +54,9 @@ object HumanDetailsImpl_ResponseAdapter : ResponseAdapter<HumanDetailsImpl.Data>
       fieldName = "friendsConnection",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = FriendsConnection.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "" to FriendsConnection.RESPONSE_FIELDS
+      ),
     )
   )
 
@@ -102,7 +104,9 @@ object HumanDetailsImpl_ResponseAdapter : ResponseAdapter<HumanDetailsImpl.Data>
         fieldName = "edges",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = Edge.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to Edge.RESPONSE_FIELDS
+        ),
       )
     )
 
@@ -143,7 +147,9 @@ object HumanDetailsImpl_ResponseAdapter : ResponseAdapter<HumanDetailsImpl.Data>
           fieldName = "node",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = Node.RESPONSE_FIELDS,
+          possibleFieldSets = mapOf(
+            "" to Node.RESPONSE_FIELDS
+          ),
         )
       )
 
@@ -185,7 +191,7 @@ object HumanDetailsImpl_ResponseAdapter : ResponseAdapter<HumanDetailsImpl.Data>
             fieldName = "name",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = emptyArray(),
+            possibleFieldSets = emptyMap(),
           )
         )
 

@@ -27,7 +27,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
       fieldName = "__typename",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = emptyArray(),
+      possibleFieldSets = emptyMap(),
     ),
     ResponseField(
       type = ResponseField.Type.Named("Organization", ResponseField.Kind.OBJECT),
@@ -38,7 +38,9 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
           "kind" to "Variable",
           "variableName" to "organizationId")),
       conditions = emptyList(),
-      fields = Organization.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "" to Organization.RESPONSE_FIELDS
+      ),
     )
   )
 
@@ -82,7 +84,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
         fieldName = "id",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type =
@@ -95,7 +97,9 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
             "kind" to "Variable",
             "variableName" to "query")),
         conditions = emptyList(),
-        fields = User.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "User" to User.UserUser.RESPONSE_FIELDS,
+        ),
       )
     )
 
@@ -132,21 +136,9 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
     }
 
     object User : ResponseAdapter<QueryFragmentImpl.Data.Organization.User> {
-      val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-        ResponseField(
-          type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-              ResponseField.Kind.OTHER)),
-          responseName = "__typename",
-          fieldName = "__typename",
-          arguments = emptyMap(),
-          conditions = emptyList(),
-          fields = emptyArray(),
-        )
-      )
-
       override fun fromResponse(reader: ResponseReader, __typename: String?):
           QueryFragmentImpl.Data.Organization.User {
-        val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+        val typename = __typename ?: reader.readString(ResponseField.Typename)
         return when(typename) {
           "User" -> UserUser.fromResponse(reader, typename)
           else -> OtherUser.fromResponse(reader, typename)
@@ -170,7 +162,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
             fieldName = "__typename",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = emptyArray(),
+            possibleFieldSets = emptyMap(),
           ),
           ResponseField(
             type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -179,7 +171,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
             fieldName = "firstName",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = emptyArray(),
+            possibleFieldSets = emptyMap(),
           ),
           ResponseField(
             type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -188,7 +180,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
             fieldName = "lastName",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = emptyArray(),
+            possibleFieldSets = emptyMap(),
           ),
           ResponseField(
             type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -200,7 +192,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
                 "kind" to "Variable",
                 "variableName" to "size")),
             conditions = emptyList(),
-            fields = emptyArray(),
+            possibleFieldSets = emptyMap(),
           )
         )
 
@@ -247,7 +239,7 @@ object QueryFragmentImpl_ResponseAdapter : ResponseAdapter<QueryFragmentImpl.Dat
             fieldName = "__typename",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = emptyArray(),
+            possibleFieldSets = emptyMap(),
           )
         )
 

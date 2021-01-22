@@ -27,7 +27,9 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
       fieldName = "hero",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = Hero.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "" to Hero.RESPONSE_FIELDS
+      ),
     )
   )
 
@@ -67,7 +69,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("FriendsConnection",
@@ -76,7 +78,9 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
         fieldName = "friendsConnection",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = FriendsConnection.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to FriendsConnection.RESPONSE_FIELDS
+        ),
       )
     )
 
@@ -116,7 +120,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
           fieldName = "totalCount",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.List(ResponseField.Type.Named("FriendsEdge",
@@ -125,7 +129,9 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
           fieldName = "edges",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = Edge.RESPONSE_FIELDS,
+          possibleFieldSets = mapOf(
+            "" to Edge.RESPONSE_FIELDS
+          ),
         )
       )
 
@@ -170,7 +176,9 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
             fieldName = "node",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = Node.RESPONSE_FIELDS,
+            possibleFieldSets = mapOf(
+              "" to Node.RESPONSE_FIELDS
+            ),
           )
         )
 
@@ -212,7 +220,7 @@ object HeroDetailsQuery_ResponseAdapter : ResponseAdapter<HeroDetailsQuery.Data>
               fieldName = "name",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             )
           )
 

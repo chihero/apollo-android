@@ -18,20 +18,8 @@ import kotlin.Suppress
     "RemoveExplicitTypeArguments", "NestedLambdaShadowedImplicitParameter", "PropertyName",
     "RemoveRedundantQualifierName")
 object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
-  val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-    ResponseField(
-      type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-          ResponseField.Kind.OTHER)),
-      responseName = "__typename",
-      fieldName = "__typename",
-      arguments = emptyMap(),
-      conditions = emptyList(),
-      fields = emptyArray(),
-    )
-  )
-
   override fun fromResponse(reader: ResponseReader, __typename: String?): TestQuery.Data {
-    val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+    val typename = __typename ?: reader.readString(ResponseField.Typename)
     return when(typename) {
       "Query" -> QueryData.fromResponse(reader, typename)
       else -> OtherData.fromResponse(reader, typename)
@@ -54,7 +42,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "__typename",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.Named("Character", ResponseField.Kind.OBJECT),
@@ -62,7 +50,9 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "hero",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = Hero.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to Hero.RESPONSE_FIELDS
+        ),
       )
     )
 
@@ -107,7 +97,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
           fieldName = "name",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         )
       )
 
@@ -142,7 +132,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "__typename",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       )
     )
 

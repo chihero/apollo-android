@@ -20,20 +20,8 @@ import kotlin.collections.List
     "RemoveExplicitTypeArguments", "NestedLambdaShadowedImplicitParameter", "PropertyName",
     "RemoveRedundantQualifierName")
 object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
-  val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-    ResponseField(
-      type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-          ResponseField.Kind.OTHER)),
-      responseName = "__typename",
-      fieldName = "__typename",
-      arguments = emptyMap(),
-      conditions = emptyList(),
-      fields = emptyArray(),
-    )
-  )
-
   override fun fromResponse(reader: ResponseReader, __typename: String?): HeroDetailsImpl.Data {
-    val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+    val typename = __typename ?: reader.readString(ResponseField.Typename)
     return when(typename) {
       "Droid" -> DroidData.fromResponse(reader, typename)
       "Human" -> HumanData.fromResponse(reader, typename)
@@ -58,7 +46,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "__typename",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -67,7 +55,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("FriendsConnection",
@@ -76,7 +64,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "friendsConnection",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = FriendsConnection.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to FriendsConnection.RESPONSE_FIELDS
+        ),
       ),
       ResponseField(
         type = ResponseField.Type.Named("String", ResponseField.Kind.OTHER),
@@ -84,7 +74,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "primaryFunction",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       )
     )
 
@@ -132,7 +122,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
           fieldName = "totalCount",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.List(ResponseField.Type.Named("FriendsEdge",
@@ -141,7 +131,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
           fieldName = "edges",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = Edge.RESPONSE_FIELDS,
+          possibleFieldSets = mapOf(
+            "" to Edge.RESPONSE_FIELDS
+          ),
         )
       )
 
@@ -186,7 +178,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
             fieldName = "node",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = Node.RESPONSE_FIELDS,
+            possibleFieldSets = mapOf(
+              "" to Node.RESPONSE_FIELDS
+            ),
           )
         )
 
@@ -228,7 +222,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
               fieldName = "name",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             )
           )
 
@@ -266,7 +260,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "__typename",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -275,7 +269,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("FriendsConnection",
@@ -284,7 +278,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "friendsConnection",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = FriendsConnection.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to FriendsConnection.RESPONSE_FIELDS
+        ),
       )
     )
 
@@ -328,7 +324,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
           fieldName = "totalCount",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.List(ResponseField.Type.Named("FriendsEdge",
@@ -337,7 +333,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
           fieldName = "edges",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = Edge.RESPONSE_FIELDS,
+          possibleFieldSets = mapOf(
+            "" to Edge.RESPONSE_FIELDS
+          ),
         )
       )
 
@@ -382,7 +380,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
             fieldName = "node",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = Node.RESPONSE_FIELDS,
+            possibleFieldSets = mapOf(
+              "" to Node.RESPONSE_FIELDS
+            ),
           )
         )
 
@@ -424,7 +424,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
               fieldName = "name",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             )
           )
 
@@ -462,7 +462,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "__typename",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -471,7 +471,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("FriendsConnection",
@@ -480,7 +480,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
         fieldName = "friendsConnection",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = FriendsConnection.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to FriendsConnection.RESPONSE_FIELDS
+        ),
       )
     )
 
@@ -524,7 +526,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
           fieldName = "totalCount",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type = ResponseField.Type.List(ResponseField.Type.Named("FriendsEdge",
@@ -533,7 +535,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
           fieldName = "edges",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = Edge.RESPONSE_FIELDS,
+          possibleFieldSets = mapOf(
+            "" to Edge.RESPONSE_FIELDS
+          ),
         )
       )
 
@@ -578,7 +582,9 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
             fieldName = "node",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = Node.RESPONSE_FIELDS,
+            possibleFieldSets = mapOf(
+              "" to Node.RESPONSE_FIELDS
+            ),
           )
         )
 
@@ -620,7 +626,7 @@ object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
               fieldName = "name",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             )
           )
 

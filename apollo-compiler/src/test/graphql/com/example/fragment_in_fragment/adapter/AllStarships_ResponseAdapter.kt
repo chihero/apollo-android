@@ -27,7 +27,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
       arguments = mapOf<String, Any?>(
         "first" to 7),
       conditions = emptyList(),
-      fields = AllStarships.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "" to AllStarships.RESPONSE_FIELDS
+      ),
     )
   )
 
@@ -70,7 +72,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
         fieldName = "edges",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = Edge.RESPONSE_FIELDS,
+        possibleFieldSets = mapOf(
+          "" to Edge.RESPONSE_FIELDS
+        ),
       )
     )
 
@@ -112,7 +116,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
           fieldName = "node",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = Node.RESPONSE_FIELDS,
+          possibleFieldSets = mapOf(
+            "Starship" to Node.StarshipNode.RESPONSE_FIELDS,
+          ),
         )
       )
 
@@ -148,21 +154,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
       object Node :
           ResponseAdapter<com.example.fragment_in_fragment.AllStarships.Data.AllStarships.Edge.Node>
           {
-        val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-          ResponseField(
-            type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-                ResponseField.Kind.OTHER)),
-            responseName = "__typename",
-            fieldName = "__typename",
-            arguments = emptyMap(),
-            conditions = emptyList(),
-            fields = emptyArray(),
-          )
-        )
-
         override fun fromResponse(reader: ResponseReader, __typename: String?):
             com.example.fragment_in_fragment.AllStarships.Data.AllStarships.Edge.Node {
-          val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+          val typename = __typename ?: reader.readString(ResponseField.Typename)
           return when(typename) {
             "Starship" -> StarshipNode.fromResponse(reader, typename)
             else -> OtherNode.fromResponse(reader, typename)
@@ -188,7 +182,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
               fieldName = "__typename",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             ),
             ResponseField(
               type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -197,7 +191,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
               fieldName = "id",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             ),
             ResponseField(
               type = ResponseField.Type.Named("String", ResponseField.Kind.OTHER),
@@ -205,7 +199,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
               fieldName = "name",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             ),
             ResponseField(
               type = ResponseField.Type.Named("StarshipPilotsConnection",
@@ -214,7 +208,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
               fieldName = "pilotConnection",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = PilotConnection.RESPONSE_FIELDS,
+              possibleFieldSets = mapOf(
+                "" to PilotConnection.RESPONSE_FIELDS
+              ),
             )
           )
 
@@ -270,7 +266,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                 fieldName = "edges",
                 arguments = emptyMap(),
                 conditions = emptyList(),
-                fields = Edge.RESPONSE_FIELDS,
+                possibleFieldSets = mapOf(
+                  "" to Edge.RESPONSE_FIELDS
+                ),
               )
             )
 
@@ -313,7 +311,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                   fieldName = "node",
                   arguments = emptyMap(),
                   conditions = emptyList(),
-                  fields = Node.RESPONSE_FIELDS,
+                  possibleFieldSets = mapOf(
+                    "Person" to Node.PersonNode.RESPONSE_FIELDS,
+                  ),
                 )
               )
 
@@ -349,21 +349,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
               object Node :
                   ResponseAdapter<com.example.fragment_in_fragment.AllStarships.Data.AllStarships.Edge.Node.StarshipNode.PilotConnection.Edge.Node>
                   {
-                val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-                  ResponseField(
-                    type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-                        ResponseField.Kind.OTHER)),
-                    responseName = "__typename",
-                    fieldName = "__typename",
-                    arguments = emptyMap(),
-                    conditions = emptyList(),
-                    fields = emptyArray(),
-                  )
-                )
-
                 override fun fromResponse(reader: ResponseReader, __typename: String?):
                     com.example.fragment_in_fragment.AllStarships.Data.AllStarships.Edge.Node.StarshipNode.PilotConnection.Edge.Node {
-                  val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+                  val typename = __typename ?: reader.readString(ResponseField.Typename)
                   return when(typename) {
                     "Person" -> PersonNode.fromResponse(reader, typename)
                     else -> OtherNode.fromResponse(reader, typename)
@@ -389,7 +377,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                       fieldName = "__typename",
                       arguments = emptyMap(),
                       conditions = emptyList(),
-                      fields = emptyArray(),
+                      possibleFieldSets = emptyMap(),
                     ),
                     ResponseField(
                       type = ResponseField.Type.Named("String", ResponseField.Kind.OTHER),
@@ -397,7 +385,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                       fieldName = "name",
                       arguments = emptyMap(),
                       conditions = emptyList(),
-                      fields = emptyArray(),
+                      possibleFieldSets = emptyMap(),
                     ),
                     ResponseField(
                       type = ResponseField.Type.Named("Planet", ResponseField.Kind.OBJECT),
@@ -405,7 +393,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                       fieldName = "homeworld",
                       arguments = emptyMap(),
                       conditions = emptyList(),
-                      fields = Homeworld.RESPONSE_FIELDS,
+                      possibleFieldSets = mapOf(
+                        "Planet" to Homeworld.PlanetHomeworld.RESPONSE_FIELDS,
+                      ),
                     )
                   )
 
@@ -449,21 +439,9 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                   object Homeworld :
                       ResponseAdapter<com.example.fragment_in_fragment.AllStarships.Data.AllStarships.Edge.Node.StarshipNode.PilotConnection.Edge.Node.PersonNode.Homeworld>
                       {
-                    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-                      ResponseField(
-                        type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-                            ResponseField.Kind.OTHER)),
-                        responseName = "__typename",
-                        fieldName = "__typename",
-                        arguments = emptyMap(),
-                        conditions = emptyList(),
-                        fields = emptyArray(),
-                      )
-                    )
-
                     override fun fromResponse(reader: ResponseReader, __typename: String?):
                         com.example.fragment_in_fragment.AllStarships.Data.AllStarships.Edge.Node.StarshipNode.PilotConnection.Edge.Node.PersonNode.Homeworld {
-                      val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+                      val typename = __typename ?: reader.readString(ResponseField.Typename)
                       return when(typename) {
                         "Planet" -> PlanetHomeworld.fromResponse(reader, typename)
                         else -> OtherHomeworld.fromResponse(reader, typename)
@@ -489,7 +467,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                           fieldName = "__typename",
                           arguments = emptyMap(),
                           conditions = emptyList(),
-                          fields = emptyArray(),
+                          possibleFieldSets = emptyMap(),
                         ),
                         ResponseField(
                           type = ResponseField.Type.Named("String", ResponseField.Kind.OTHER),
@@ -497,7 +475,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                           fieldName = "name",
                           arguments = emptyMap(),
                           conditions = emptyList(),
-                          fields = emptyArray(),
+                          possibleFieldSets = emptyMap(),
                         )
                       )
 
@@ -538,7 +516,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                           fieldName = "__typename",
                           arguments = emptyMap(),
                           conditions = emptyList(),
-                          fields = emptyArray(),
+                          possibleFieldSets = emptyMap(),
                         )
                       )
 
@@ -577,7 +555,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
                       fieldName = "__typename",
                       arguments = emptyMap(),
                       conditions = emptyList(),
-                      fields = emptyArray(),
+                      possibleFieldSets = emptyMap(),
                     )
                   )
 
@@ -618,7 +596,7 @@ object AllStarships_ResponseAdapter : ResponseAdapter<AllStarships.Data> {
               fieldName = "__typename",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             )
           )
 

@@ -30,7 +30,9 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
           "kind" to "Variable",
           "variableName" to "id")),
       conditions = emptyList(),
-      fields = Starship.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "" to Starship.RESPONSE_FIELDS
+      ),
     )
   )
 
@@ -70,7 +72,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "id",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -79,7 +81,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type =
@@ -89,7 +91,7 @@ object TestQuery_ResponseAdapter : ResponseAdapter<TestQuery.Data> {
         fieldName = "coordinates",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       )
     )
 

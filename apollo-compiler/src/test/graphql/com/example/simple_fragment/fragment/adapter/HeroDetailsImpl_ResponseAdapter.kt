@@ -18,20 +18,8 @@ import kotlin.Suppress
     "RemoveExplicitTypeArguments", "NestedLambdaShadowedImplicitParameter", "PropertyName",
     "RemoveRedundantQualifierName")
 internal object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImpl.Data> {
-  val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-    ResponseField(
-      type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-          ResponseField.Kind.OTHER)),
-      responseName = "__typename",
-      fieldName = "__typename",
-      arguments = emptyMap(),
-      conditions = emptyList(),
-      fields = emptyArray(),
-    )
-  )
-
   override fun fromResponse(reader: ResponseReader, __typename: String?): HeroDetailsImpl.Data {
-    val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+    val typename = __typename ?: reader.readString(ResponseField.Typename)
     return when(typename) {
       "Human" -> HumanData.fromResponse(reader, typename)
       else -> OtherData.fromResponse(reader, typename)
@@ -54,7 +42,7 @@ internal object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImp
         fieldName = "__typename",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       ),
       ResponseField(
         type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -63,7 +51,7 @@ internal object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImp
         fieldName = "name",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       )
     )
 
@@ -101,7 +89,7 @@ internal object HeroDetailsImpl_ResponseAdapter : ResponseAdapter<HeroDetailsImp
         fieldName = "__typename",
         arguments = emptyMap(),
         conditions = emptyList(),
-        fields = emptyArray(),
+        possibleFieldSets = emptyMap(),
       )
     )
 

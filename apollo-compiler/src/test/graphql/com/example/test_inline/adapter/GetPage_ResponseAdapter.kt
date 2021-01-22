@@ -27,7 +27,9 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
       fieldName = "collection",
       arguments = emptyMap(),
       conditions = emptyList(),
-      fields = Collection.RESPONSE_FIELDS,
+      possibleFieldSets = mapOf(
+        "ParticularCollection" to Collection.ParticularCollectionCollection.RESPONSE_FIELDS,
+      ),
     )
   )
 
@@ -55,31 +57,9 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
   }
 
   object Collection : ResponseAdapter<GetPage.Data.Collection> {
-    val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-      ResponseField(
-        type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-            ResponseField.Kind.OTHER)),
-        responseName = "__typename",
-        fieldName = "__typename",
-        arguments = emptyMap(),
-        conditions = emptyList(),
-        fields = emptyArray(),
-      ),
-      ResponseField(
-        type =
-            ResponseField.Type.NotNull(ResponseField.Type.List(ResponseField.Type.NotNull(ResponseField.Type.Named("Item",
-            ResponseField.Kind.OBJECT)))),
-        responseName = "items",
-        fieldName = "items",
-        arguments = emptyMap(),
-        conditions = emptyList(),
-        fields = Collection.Item.RESPONSE_FIELDS,
-      )
-    )
-
     override fun fromResponse(reader: ResponseReader, __typename: String?):
         GetPage.Data.Collection {
-      val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+      val typename = __typename ?: reader.readString(ResponseField.Typename)
       return when(typename) {
         "ParticularCollection" -> ParticularCollectionCollection.fromResponse(reader, typename)
         else -> OtherCollection.fromResponse(reader, typename)
@@ -103,7 +83,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type =
@@ -113,7 +93,9 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
           fieldName = "items",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = Item.RESPONSE_FIELDS,
+          possibleFieldSets = mapOf(
+            "ParticularItem" to Item.ParticularItemItem.RESPONSE_FIELDS,
+          ),
         )
       )
 
@@ -151,21 +133,9 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
       }
 
       object Item : ResponseAdapter<GetPage.Data.Collection.ParticularCollectionCollection.Item> {
-        val RESPONSE_FIELDS: Array<ResponseField> = arrayOf(
-          ResponseField(
-            type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
-                ResponseField.Kind.OTHER)),
-            responseName = "__typename",
-            fieldName = "__typename",
-            arguments = emptyMap(),
-            conditions = emptyList(),
-            fields = emptyArray(),
-          )
-        )
-
         override fun fromResponse(reader: ResponseReader, __typename: String?):
             GetPage.Data.Collection.ParticularCollectionCollection.Item {
-          val typename = __typename ?: reader.readString(RESPONSE_FIELDS[0])
+          val typename = __typename ?: reader.readString(ResponseField.Typename)
           return when(typename) {
             "ParticularItem" -> ParticularItemItem.fromResponse(reader, typename)
             else -> OtherItem.fromResponse(reader, typename)
@@ -191,7 +161,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
               fieldName = "title",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             ),
             ResponseField(
               type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -200,7 +170,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
               fieldName = "__typename",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             ),
             ResponseField(
               type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -209,7 +179,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
               fieldName = "image",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             )
           )
 
@@ -253,7 +223,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
               fieldName = "title",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             ),
             ResponseField(
               type = ResponseField.Type.NotNull(ResponseField.Type.Named("String",
@@ -262,7 +232,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
               fieldName = "__typename",
               arguments = emptyMap(),
               conditions = emptyList(),
-              fields = emptyArray(),
+              possibleFieldSets = emptyMap(),
             )
           )
 
@@ -303,7 +273,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
           fieldName = "__typename",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = emptyArray(),
+          possibleFieldSets = emptyMap(),
         ),
         ResponseField(
           type =
@@ -313,7 +283,9 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
           fieldName = "items",
           arguments = emptyMap(),
           conditions = emptyList(),
-          fields = Item.RESPONSE_FIELDS,
+          possibleFieldSets = mapOf(
+            "" to Item.RESPONSE_FIELDS
+          ),
         )
       )
 
@@ -359,7 +331,7 @@ object GetPage_ResponseAdapter : ResponseAdapter<GetPage.Data> {
             fieldName = "title",
             arguments = emptyMap(),
             conditions = emptyList(),
-            fields = emptyArray(),
+            possibleFieldSets = emptyMap(),
           )
         )
 
