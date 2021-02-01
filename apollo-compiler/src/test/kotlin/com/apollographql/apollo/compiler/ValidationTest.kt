@@ -53,9 +53,9 @@ class ValidationTest(name: String, private val graphQLFile: File) {
           .walk()
           .toList()
           .filter { it.isFile }
+          //.filter { it.name.contains("InputObjectFieldNon") }
           .filter { it.extension == "graphql" }
           .sortedBy { it.name }
-          //.filter { it.name.contains("InputObjectFieldType") }
           .map { arrayOf(it.nameWithoutExtension, it) }
     }
   }
